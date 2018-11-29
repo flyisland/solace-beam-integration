@@ -121,15 +121,7 @@ public class SolaceIO {
         }
 
         public ConnectionConfiguration withUsername(String username) {
-            ConnectionConfiguration.Builder b = builder();
-            String[] args = username.split("@");
-            if (args.length == 2){
-                b = b.setVpn(args[1]);
-            } else {
-                b = b.setVpn("default");
-            }
-
-            return b.setUsername(args[0]).build();
+            return builder().setUsername(username).build();
         }
 
         public ConnectionConfiguration withPassword(String password) {
